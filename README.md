@@ -1,73 +1,52 @@
-# Modélisation CPPI
+# Projet sur la Stratégie CPPI
+## 一、Introduction
+1. **Contexte**：Expliquer le besoin croissant de protection du capital dans les investissements financiers et la place de la stratégie CPPI dans ce contexte.
+2. **Objectifs du projet**
+    - Comprendre les principes fondamentaux de la stratégie CPPI.
+    - Modéliser stochastiquement la stratégie CPPI.
+    - Coder la stratégie CPPI pour effectuer des simulations numériques.
+    - Analyser les performances de la stratégie CPPI en utilisant des métriques de risque.
+    - Étudier l'impact de différents paramètres et de la prise en compte de phénomènes tels que les sauts et la volatilité sur la stratégie CPPI.
+3. **Étapes clés du projet**：Présenter brièvement les grandes étapes du projet, y compris la modélisation, la programmation, l'analyse des résultats et la discussion des implications pratiques.
 
-## 一、引言
-1. **项目背景**
-    - 阐述投资组合保险在金融市场中的重要性和发展背景。
-    - 说明选择CPPI策略进行研究的原因，如在资本保护和参与市场收益方面的独特优势。
-2. **项目目标**
-    - 明确通过随机建模、编码和分析，深入理解CPPI策略的运作机制和性能。
-    - 基于模型和模拟结果，评估CPPI策略在不同市场条件下的风险和收益表现。
-3. **报告结构概述**
-    - 简要介绍报告各部分的主要内容，引导读者了解报告的整体框架。
+## 二、Modélisation de la stratégie CPPI
+1. **Principes généraux de la stratégie CPPI**
+    - Définir les éléments clés de la stratégie CPPI, tels que le solde (floor), le coussin (cushion), le multiplicateur (multiplier), l'actif risqué et l'actif sans risque.
+    - Expliquer comment la valeur du portefeuille est composée de l'actif risqué et de l'actif sans risque et comment le coussin est calculé.
+2. **Modélisation stochastique**
+    - Utiliser un modèle stochastique pour décrire l'évolution de l'actif risqué, par exemple, un modèle de marché stochastique du type Black - Scholes pour les variations continues ou un modèle de sauts (comme le modèle de Kou) pour prendre en compte les mouvements soudains.
+    - Présenter les équations différentielles stochastiques (EDS) qui décrivent l'évolution du portefeuille CPPI dans le cadre du modèle choisi.
+    - Discuter des hypothèses et des limites du modèle choisi pour la modélisation de la stratégie CPPI.
 
-## 二、CPPI策略理论基础
-1. **CPPI策略基本原理**
-    - 详细解释CPPI策略的核心要素，包括底线（Floor）、缓冲垫（Cushion）、乘数（Multiplier）、风险资产（Risky Asset）和无风险资产（Risk-free Asset）。
-    - 说明投资组合价值的构成以及风险资产和无风险资产的配置比例如何根据CPPI规则进行动态调整。
-2. **与其他投资组合保险策略的比较**
-    - 对比CPPI与止损策略（Stop-loss Strategy）、基于期权的投资组合保险（OBPI）等其他常见投资组合保险策略。
-    - 分析CPPI策略在风险控制、成本效益、市场适应性等方面的优势和局限性。
-3. **相关理论模型和假设**
-    - 介绍CPPI策略建模中所基于的理论模型，如Black-Scholes模型（用于描述风险资产价格的随机波动）、随机微积分等相关知识。
-    - 阐述模型的假设条件，如市场的有效性、资产价格的连续性、无交易成本等，并讨论这些假设在实际应用中的合理性和可能的偏差。
+## 三、Codification de la stratégie CPPI
+1. **Choix du langage de programmation**：Justifier le choix du langage de programmation utilisé pour coder la stratégie CPPI, par exemple, Python en raison de ses bibliothèques numériques et statistiques puissantes (NumPy, SciPy, Pandas).
+2. **Implémentation de la stratégie CPPI**
+    - Écrire le code pour calculer les positions d'actifs risqués et sans risque à chaque instant, en utilisant les formules et les règles de la stratégie CPPI.
+    - Gérer la rééquilibrage du portefeuille en fonction des variations des prix des actifs.
+    - Ajouter des fonctionnalités pour prendre en compte des paramètres tels que le multiplicateur, le solde, la fréquence de rééquilibrage et les paramètres du modèle stochastique.
+3. **Test et validation du code**：Écrire des tests unitaires pour vérifier le bon fonctionnement du code de la stratégie CPPI. Vérifier que les résultats calculés sont cohérents avec les formules théoriques et les résultats attendus dans des scénarios simples.
 
-## 三、CPPI策略的随机建模
-1. **风险资产价格的随机过程**
-    - 选择合适的随机过程来描述风险资产价格的演变，如几何布朗运动（Geometric Brownian Motion）或考虑跳跃过程的模型（如Kou模型）。
-    - 详细说明随机过程的参数设定，如漂移项（Drift）、波动率（Volatility）等，并解释如何根据市场数据或经验进行估计。
-2. **CPPI投资组合价值的动态方程**
-    - 基于风险资产价格的随机过程，推导CPPI投资组合价值的动态方程。
-    - 分析方程中各变量之间的关系，以及投资组合价值如何随时间和市场条件的变化而演变。
-3. **模型的参数估计和校准**
-    - 介绍使用历史市场数据估计模型参数的方法，如极大似然估计（Maximum Likelihood Estimation）或贝叶斯估计（Bayesian Estimation）。
-    - 讨论如何对模型进行校准，以确保模型能够准确反映实际市场情况，并提高模型的预测能力。
+## 四、Analyse des performances de la stratégie CPPI
+1. **Métriques de risque**
+    - Définir les métriques de risque clés pour évaluer la performance de la stratégie CPPI, telles que la probabilité de dépassement du solde (shortfall probability), la perte attendue en cas de dépassement du solde (expected shortfall), la variance de la valeur finale du portefeuille.
+    - Expliquer comment calculer ces métriques dans le cadre de la stratégie CPPI, en utilisant les formules théoriques et les résultats des simulations numériques.
+2. **Impact des paramètres**
+    - Analyser l'impact du multiplicateur, du solde, de la volatilité de l'actif risqué et du taux d'intérêt sur les performances de la stratégie CPPI.
+    - Effectuer des simulations en changeant les valeurs de ces paramètres pour observer les variations des métriques de risque et de la valeur finale du portefeuille.
+3. **Étude de cas**：Appliquer la stratégie CPPI à des données réelles ou à des scénarios hypothétiques pour illustrer ses performances dans des situations pratiques. Analyser les résultats obtenus et discuter des implications pour les investisseurs.
 
-## 四、CPPI策略的编码实现
-1. **编程语言和工具的选择**
-    - 说明选择特定编程语言（如Python、R等）和相关工具（如NumPy、SciPy、Matplotlib等）进行编码的原因，包括其在数值计算、数据处理和可视化方面的优势。
-2. **CPPI策略的算法设计**
-    - 详细描述实现CPPI策略的算法步骤，包括投资组合的初始化、风险资产和无风险资产的配置计算、再平衡操作等。
-    - 提供算法的流程图或伪代码，以便清晰地展示算法的逻辑结构。
-3. **代码实现和调试**
-    - 展示具体的代码实现，包括数据输入、模型计算、结果输出等关键部分。
-    - 讨论在代码实现过程中遇到的问题和解决方法，以及如何进行代码的调试和优化。
+## 五、Étude des phénomènes complexes
+1. **Sauts dans la stratégie CPPI**
+    - Présenter le modèle de sauts utilisé (par exemple, le modèle de Kou) et expliquer comment il capture les mouvements soudains de l'actif risqué.
+    - Analyser l'impact des sauts sur la probabilité de dépassement du solde et les performances de la stratégie CPPI.
+    - Comparer les résultats obtenus avec le modèle de sauts et ceux obtenus avec un modèle sans sauts (par exemple, le modèle Black - Scholes).
+2. **Gestion du risque lié à la volatilité**
+    - Présenter des méthodes pour prendre en compte la volatilité dans la stratégie CPPI, telles que l'ajustement dynamique du multiplicateur en fonction de la volatilité.
+    - Analyser l'effet de l'ajustement dynamique du multiplicateur sur les performances de la stratégie CPPI et sur la gestion du risque.
+    - Discuter des limites et des avantages de ces méthodes.
 
-## 五、CPPI策略的模拟与分析
-1. **模拟场景设置**
-    - 定义不同的模拟场景，包括不同的市场环境（如牛市、熊市、震荡市）、参数取值范围（如乘数、波动率、利率等）和投资期限。
-    - 说明每个模拟场景的具体设置和变化因素，以便进行对比分析。
-2. **模拟结果分析**
-    - 对模拟结果进行统计分析，计算关键指标如投资组合价值的均值、方差、标准差、短缺概率（Shortfall Probability）、预期短缺（Expected Shortfall）等。
-    - 通过图表（如折线图、直方图、散点图等）直观地展示模拟结果，分析不同参数和市场条件对CPPI策略性能的影响。
-3. **敏感性分析**
-    - 进行敏感性分析，研究CPPI策略对关键参数的敏感程度。
-    - 确定哪些参数对投资组合的风险和收益影响较大，并讨论如何在实际应用中合理调整这些参数以优化策略效果。
-
-## 六、结论与展望
-1. **主要结论总结**
-    - 概括CPPI策略的随机建模、编码实现和模拟分析的主要结果，强调关键发现和结论。
-    - 对CPPI策略在不同市场条件下的表现进行综合评价，包括其在风险控制和收益获取方面的优缺点。
-2. **实际应用建议**
-    - 根据研究结果，为投资者和金融机构在实际应用CPPI策略时提供具体的建议，如参数选择、市场时机把握、风险管理措施等。
-    - 讨论CPPI策略在不同投资场景（如养老基金、保险资金管理、个人投资等）中的适用性和潜在的改进方向。
-3. **研究的局限性和未来展望**
-    - 承认研究中存在的局限性，如模型假设的简化、数据的局限性、市场环境的复杂性等。
-    - 提出未来研究的方向和建议，如进一步改进模型、考虑更多实际因素、拓展研究范围等，以推动对CPPI策略的深入理解和应用。
-
-## 七、参考文献
-列出在报告撰写过程中引用的所有参考文献，包括学术论文、书籍、报告、网页等，按照规范的引用格式进行排列。
-
-## 八、附录
-1. **详细的代码清单**：提供完整的CPPI策略编码实现的代码，包括注释和说明，以便读者理解代码的功能和逻辑。
-2. **数据来源和处理说明**：介绍模拟分析中所使用的数据来源，以及数据的收集、清洗、预处理等过程，确保数据的可靠性和有效性。
-3. **其他相关资料**：如有需要，可在附录中提供其他与项目相关的资料，如模型推导的详细过程、敏感性分析的具体计算结果、图表的原始数据等。 
+## 六、Conclusion
+1. **Résumé des résultats**：Récapituler les principaux résultats obtenus dans le cadre du projet, en mettant l'accent sur les performances de la stratégie CPPI, l'impact des paramètres et des phénomènes complexes, et les métriques de risque.
+2. **Implications pratiques**：Discuter les implications pratiques de la stratégie CPPI pour les investisseurs, les gestionnaires de portefeuille et les compagnies d'assurance.
+3. **Perspectives d'amélioration**：Proposer des pistes d'amélioration pour la stratégie CPPI, en utilisant des modèles plus sophistiqués, en prenant en compte d'autres facteurs de risque ou en développant des méthodes de gestion du risque plus efficaces.
+4. **Limitations du projet**：Évoquer les limitations du projet, telles que les hypothèses simplificatrices des modèles utilisés, les difficultés de calibration des paramètres et les limitations de la programmation. 
